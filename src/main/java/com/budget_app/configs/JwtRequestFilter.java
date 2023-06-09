@@ -8,10 +8,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -38,7 +34,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         if (authHeader!=null && authHeader.startsWith("Bearer ")) {
             jwt = authHeader.substring(7);
             try {
-                login = jwtTokenUtil.getLoginFromToken(jwt);
+                login = jwtTokenUtil.getUsernameFromToken(jwt);
             }catch (ExpiredJwtException e) {
                 log.debug("The token is expired");
             }

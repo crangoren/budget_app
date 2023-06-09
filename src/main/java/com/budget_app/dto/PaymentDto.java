@@ -27,6 +27,8 @@ public class PaymentDto {
 
     private String description;
 
-    private Long userId;
+    private User user;
+
+
 
 }

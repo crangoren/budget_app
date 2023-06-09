@@ -41,7 +41,6 @@ public class PaymentService {
         Payment payment = paymentRepository.findById(paymentDto.getId()).orElseThrow(() -> new ResourceNotFoundException("Платеж не найден, id: " + paymentDto.getId()));
         payment.setAmount(paymentDto.getAmount());
         payment.setDescription(paymentDto.getDescription());
-        payment.setUserId(paymentDto.getUserId());
         return payment;
     }
 

@@ -2,10 +2,12 @@ package com.budget_app.validators;
 
 import com.budget_app.dto.PaymentDto;
 import com.budget_app.exceptions.ValidationException;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class PaymentValidator {
 
     public void validate(PaymentDto paymentDto) {

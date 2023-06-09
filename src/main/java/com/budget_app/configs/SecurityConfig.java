@@ -3,6 +3,7 @@ package com.budget_app.configs;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
@@ -20,6 +21,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @RequiredArgsConstructor
 @EnableMethodSecurity(prePostEnabled = true)
 @Slf4j
+@Configuration
 public class SecurityConfig{
     private final JwtRequestFilter jwtRequestFilter;
 
@@ -52,6 +54,8 @@ public class SecurityConfig{
     public BCryptPasswordEncoder passwordEncoder(){
         return  new BCryptPasswordEncoder();
     }
+
+
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authConfiguration) throws Exception {

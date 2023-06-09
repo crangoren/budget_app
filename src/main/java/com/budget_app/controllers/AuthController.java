@@ -22,10 +22,11 @@ public class AuthController {
 
     private final UserService userService;
     private final JwtTokenUtil jwtTokenUtil;
+
     private final AuthenticationManager authenticationManager;
 
 
-    @PostMapping("api/v1//auth")
+    @PostMapping("api/v1/auth")
     public ResponseEntity<?> createAuthToken(@RequestBody JwtRequest authRequest) {
         //проверка через userdetailsservice правильности лог/пасс из запроса
         try{
